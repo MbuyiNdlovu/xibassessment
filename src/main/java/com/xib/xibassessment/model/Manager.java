@@ -23,7 +23,7 @@ public class Manager {
     private String managersurname;
 
 
-   /* @OneToMany(mappedBy = "managerinstance")
-    private List <Team> teamList = new ArrayList<>();
-*/
+   /*@OneToMany(mappedBy = "managerinstance")
+    private List <Team> teamList = new ArrayList<>();*/
+
 }
