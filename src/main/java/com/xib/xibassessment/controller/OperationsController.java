@@ -1,13 +1,15 @@
 package com.xib.xibassessment.controller;
 
-
 import com.xib.xibassessment.model.Agent;
+import com.xib.xibassessment.model.Manager;
 import com.xib.xibassessment.model.Team;
 import com.xib.xibassessment.repository.AgentRepository;
 import com.xib.xibassessment.repository.ManagerRepository;
 import com.xib.xibassessment.repository.TeamRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -70,4 +72,23 @@ public class OperationsController {
         logger.info("Creates a new agent with the specified details - Expects a JSON body");
         agentRepository.save(agent);
     }
+
+    @GetMapping(value = "/getagentspaginated/{paginatefrom}/{paginateto}", produces = {"application/json"})
+    public void getAgentPaginated(@PathVariable(value = "paginatefrom") int paginatefrom, @PathVariable(value = "paginateto") int paginateto) {
+        logger.info("Paginate from #"+ paginatefrom + "  to  #" + paginateto);
+        Pageable pageable = PageRequest.of(paginatefrom, paginateto);
+    }
+
+    @PostMapping(value = "createmanager", consumes = {"application/json"})
+    public void createManager(@RequestBody Manager manager) {
+        logger.info("Creates a new manager with the specified details - Expects a JSON body");
+        managerRepository.save(manager);
+    }
+
+  @GetMapping(value = "/getemptyteams", produces = {"application/json"})
+    public List<Team> getEmptyTeams() {
+        logger.info("api endpoint that  returns a list of all empty teams ");
+        return teamRepository.findByAgentidOrManagerid(0L,0L);
+    }
+
 }

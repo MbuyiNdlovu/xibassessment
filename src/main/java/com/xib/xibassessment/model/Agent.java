@@ -24,9 +24,9 @@ public class Agent {
     private String agentsurname;
 
     @Column(name= "managerid")
-    private Long managerid;
+    private Long managerId;
 
     @Column(name= "teamid")
-    private Long teamid;
+    private Long teamId;
 
 }
