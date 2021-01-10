@@ -1,0 +1,10 @@
+#DataBase (MySQL)
+
+mysql -u root -pmbuyi
+create database xibassessment
+
+
+#Build (Maven)
+
+mvn clean install
+mvn spring-boot:run
