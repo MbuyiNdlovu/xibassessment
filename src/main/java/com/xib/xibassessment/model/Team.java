@@ -24,9 +24,9 @@ public class Team {
     @Column (name = "managerid")
     private Long managerid;
 
-    @ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   /* @ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn (name="managerid", insertable = false, updatable = false)
-    private Manager managerinstance;
+    private Manager managerinstance;*/
 
 
 

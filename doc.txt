@@ -8,3 +8,36 @@ create database xibassessment
 
 mvn clean install
 mvn spring-boot:run
+
+
+
+#Create Team
+
+Method: POST
+
+Endpoint: http://localhost:8080
+
+Resource: /com/xib/xibassessment/operations/createteam/
+
+Request: {"teamname":"team xib", "agentid":1,"managerid": 1 }
+
+Headers:
+Accept: application/json
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+
+
+ #Create Agent
+
+ Method: POST
+
+ Endpoint: http://localhost:8080
+
+ Resource: /com/xib/xibassessment/operations/createagent/
+
+ Request: {"agentname":"xib agent name", "agentsurname":"xib agent surname", "managerid": 1, "teamid":1}
+
+ Headers:
+ Accept: application/json
+ Content-Type: application/json
+ Access-Control-Allow-Origin: *
