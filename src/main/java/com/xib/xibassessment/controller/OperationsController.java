@@ -41,31 +41,31 @@ public class OperationsController {
         return teamRepository.findAll();
     }
 
-    @GetMapping(value = "/team/{id}")
+    @GetMapping(value = "/team/{id}", produces = {"application/json"})
     public Optional<Team> getTeam(@PathVariable(value = "id") Long id) {
         logger.info("Returns a detail view of the specified team in JSON format");
         return teamRepository.findById(id);
     }
 
-    @GetMapping(value = "/agents", produces = "application/json")
+    @GetMapping(value = "/agents", produces = {"application/json"})
     public List<Agent> getAgents() {
         logger.info("Returns a list of all agents in the database in JSON format");
         return agentRepository.findAll();
     }
 
-    @GetMapping(value = "/agent/{id}")
+    @GetMapping(value = "/agent/{id}", produces = {"application/json"})
     public Optional<Agent> getAgent(@PathVariable(value = "id") Long id) {
         logger.info("Returns a detail view of the specified agent in JSON format. This should include team details.");
         return agentRepository.findById(id);
     }
 
-    @PostMapping(value = "createteam", consumes = "application/json")
+    @PostMapping(value = "createteam", consumes = {"application/json"})
     public void createTeam(@RequestBody Team team) {
         logger.info("Creates a new team with the specified details - Expects a JSON body");
         teamRepository.save(team);
     }
 
-    @PostMapping(value = "createagent", consumes = "application/json")
+    @PostMapping(value = "createagent", consumes = {"application/json"})
     public void createTeam(@RequestBody Agent agent) {
         logger.info("Creates a new agent with the specified details - Expects a JSON body");
         agentRepository.save(agent);
